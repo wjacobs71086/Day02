@@ -41,7 +41,7 @@ function lookUpProfile(name,prop){
   for(let i = 0; i < contacts.length; i++){
     if( name === contacts[i].firstName){
       if (contacts[i].hasOwnProperty === (prop)){
-        console.log(contacts[i][prop]);
+        return contacts[i][prop];
       } else {
         console.log('No such property.');
       }
@@ -56,14 +56,19 @@ function lookUpProfile(name,prop){
 // Change these values to test your function
 //lookUpProfile('Harry','likes');
 
-const myNames = ['Rich', 'Joe', 'Bhaumik', 'Ray'];
 
 
-function firstLetter(arr){
-  if (arr[0]=== 'R'){
-    return arr[0];
-  }
-}
+
+
+
+
+
+
+
+
+
+
+
 
 function filter(arr,fn) {
   // TASK: Define your function here
@@ -76,11 +81,14 @@ function filter(arr,fn) {
   return newArray;
 }
 
-filter(myNames,firstLetter());
+function firstLetter(arr){
+  return arr.map((arr) => arr[0]).join('');
+}
+
 
 // DO NOT EDIT BETWEEN THESE LINES, BUT DO READ THE CODE ----->
 // First we setup an array of strings we plan to filter:
-//const myNames = ['Rich', 'Joe', 'Bhaumik', 'Ray'];
+const myNames = ['Rich', 'Joe', 'Bhaumik', 'Ray'];
 
 // We use your `filter` function here, capturing a new array into `filteredNames`
 // comprised of names that only begin with 'R'
@@ -96,3 +104,4 @@ const filteredNames = filter(myNames, function(name) {
 
 
 
+filter(myNames,firstLetter(myNames));
