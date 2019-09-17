@@ -68,7 +68,7 @@ function lookUpProfile(name,prop){
 
 
 
-
+const name = (name) => { return name[0] === 'R';};
 
 function filter(arr,fn) {
   // TASK: Define your function here
@@ -78,12 +78,15 @@ function filter(arr,fn) {
       newArray.push(arr[i]);
     }
   }
+  /*function firstLetter(arr){
+    return arr.map((arr) => arr[0]).join('');
+  }
+  return newArray;
+  */
   return newArray;
 }
 
-function firstLetter(arr){
-  return arr.map((arr) => arr[0]).join('');
-}
+
 
 
 // DO NOT EDIT BETWEEN THESE LINES, BUT DO READ THE CODE ----->
@@ -102,6 +105,47 @@ const filteredNames = filter(myNames, function(name) {
 // <---- DO NOT EDIT BETWEEN THESE LINES
 
 
+console.log(filter(myNames,name));
 
 
-filter(myNames,firstLetter(myNames));
+
+
+
+
+
+
+// THis is the next set of drills
+console.log('im working');
+
+function hazardWarningCreator(typeOfWarning){
+  let warningCounter = 0;
+
+  return function(location) {
+    warningCounter += 1;
+    if(warningCounter === 1){
+      console.log(`DANGER! There is a ${typeOfWarning} hazard at/in ${location}!`);
+      console.log(`The ${typeOfWarning} hazard alert has triggered ${warningCounter} time today!`);
+    } if (warningCounter > 1){
+      console.log(`DANGER! There is a ${typeOfWarning} hazard at/in ${location}!`);
+      console.log(`The ${typeOfWarning} hazard alert has triggered ${warningCounter} times today!`);
+    }
+    return warningCounter;
+  };
+  
+}
+
+const rockWarning = hazardWarningCreator('Rock on the Road');
+rockWarning('texas');
+const flashFloods = hazardWarningCreator('High rushing waters');
+flashFloods('Alaska');
+flashFloods('Alaska');
+flashFloods('Alaska');
+
+
+
+
+
+
+
+
+
