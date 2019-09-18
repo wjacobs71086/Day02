@@ -15,17 +15,27 @@ so that future iterations can concatenate more string characters*/
 
 
 //const sourceCode = ['noggin', 'oreo', 'the', 'moon', 'time', 'tele', 'steed', 'his', 'tent', 'apollo', 'her', 'lives', 'though', 'shoo', 'tofu', 'budapest'];
+function reverseString(str) {
+  let change = str.split("").reverse().join('');
+  return change.charAt(0).toUpperCase() + change.slice(1);
+}
+
+console.log(reverseString('is this working'));
+
 const sourceCode = 'noggin oreo the moon time tele steed his tent apollo her lives though shoo tofu budapest';
 let breakUp = sourceCode.split(' ');
 //console.log(breakUp);
+
 let deCode = breakUp.reduce(function(accumulator, currentValue, currentIndex, array, initialValue = ''){
   for( let i = 0; i < breakUp.length; i++){   
     if (breakUp[i] === 3){
-      accumulator += ' ';
+      return accumulator += ' ';
     } else {
-      accumulator = array[currentIndex].charAt(array.length).toUpperCase();
+      return accumulator = reverseString(accumulator);
     }
   }
+   
 });
 
-console.log(deCode);
+
+//console.log(deCode);
