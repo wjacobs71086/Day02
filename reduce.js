@@ -13,4 +13,19 @@ You will need to convert the input to an array before using .reduce()
 HINT: When you invoke reduce() you will need to set the initialValue parameter to an empty string 
 so that future iterations can concatenate more string characters*/
 
-const sourceCode = ['noggin', 'oreo', 'the', 'moon', 'time', 'tele', 'steed', 'his', 'tent', 'apollo', 'her', 'lives', 'though', 'shoo', 'tofu', 'budapest'];
+
+//const sourceCode = ['noggin', 'oreo', 'the', 'moon', 'time', 'tele', 'steed', 'his', 'tent', 'apollo', 'her', 'lives', 'though', 'shoo', 'tofu', 'budapest'];
+const sourceCode = 'noggin oreo the moon time tele steed his tent apollo her lives though shoo tofu budapest';
+let breakUp = sourceCode.split(' ');
+//console.log(breakUp);
+let deCode = breakUp.reduce(function(accumulator, currentValue, currentIndex, array, initialValue = ''){
+  for( let i = 0; i < breakUp.length; i++){   
+    if (breakUp[i] === 3){
+      accumulator += ' ';
+    } else {
+      accumulator = array[currentIndex].charAt(array.length).toUpperCase();
+    }
+  }
+});
+
+console.log(deCode);
